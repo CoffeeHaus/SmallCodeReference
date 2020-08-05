@@ -1,2 +1,5 @@
 find / -type f -perm 0777 2>/dev/null
 ## finds all files with permissions of user
+
+scp [user]@[ip]:[file location] [destination]
+#Copies file from server
