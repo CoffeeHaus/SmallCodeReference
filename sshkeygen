@@ -1,0 +1,11 @@
+ssh-keygen -t rsa  # -t sets type
+
+ssh-copy-id demo@198.51.100.0
+
+sudo nano /etc/ssh/sshd_config
+
+/etc/ssh/sshd_config
+\/
+PermitRootLogin without-password
+
+sudo systemctl reload sshd.service
